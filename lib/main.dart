@@ -18,6 +18,10 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Caps',
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,          
+      ),
       initialRoute: '/',
       routes: {
         '/': (context) => const MainPage(),
