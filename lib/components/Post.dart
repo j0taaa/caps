@@ -66,7 +66,7 @@ class _PostComponentState extends State<PostComponent> {
                     Row(
                       children: [
                         Text(
-                          widget.post.author,
+                          widget.post.username,
                           style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 16,
@@ -74,7 +74,7 @@ class _PostComponentState extends State<PostComponent> {
                         ),
                         const SizedBox(width: 8),
                         Text(
-                          '@${widget.post.author.toLowerCase()}',
+                          '@${widget.post.userHandle.toLowerCase()}',
                           style: const TextStyle(
                             color: Colors.grey,
                             fontSize: 14,

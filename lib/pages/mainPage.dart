@@ -9,18 +9,27 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<Post> posts = [
+      Post(content: "Hello, world!", username: "John Doe", userHandle: "johndoe", profilePicture: "https://picsum.photos/200/300", likes: 0),
+      Post(content: "Hello, world!", username: "John Doe", userHandle: "johndoe", profilePicture: "https://picsum.photos/200/300", likes: 0),
+      Post(content: "Hello, world!", username: "John Doe", userHandle: "johndoe", profilePicture: "https://picsum.photos/200/300", likes: 0),
+    ];
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Main Page'),
         leading: const CapsLeading(),
       ),
       drawer: const CapsDrawer(),
-      body: Column(
-        children: [
-          PostComponent(post: Post(content: "Hello, world!", author: "John Doe", profilePicture: "https://picsum.photos/200/300", likes: 0)),
-          PostComponent(post: Post(content: "Hello, world!", author: "John Doe", profilePicture: "https://picsum.photos/200/300", likes: 0)),
-          PostComponent(post: Post(content: "Hello, world!", author: "John Doe", profilePicture: "https://picsum.photos/200/300", likes: 0)),
-        ],
+      body: ListView(
+        children: posts.map((post) {
+          return PostComponent(
+            post: post,
+            onLike: () {
+              print("Liked post by ${post.userHandle}");
+            },
+          );
+        }).toList(),
       ),
       bottomNavigationBar: const CapsBottomNavigationBar(currentIndex: 0),
     );
