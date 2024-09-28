@@ -95,14 +95,16 @@ class _LoginPageState extends State<LoginPage> {
 
   // Função para criar o TextField de email/nome de usuário
   Widget _buildTextField(String hintText) {
-    return FractionallySizedBox(
-      widthFactor: 0.35, // 35% of the viewport width
+    return SizedBox(
+      width: 320, // Set the width to 320 pixels
       child: TextField(
         decoration: InputDecoration(
-          hintText: hintText,
+          // hintText: hintText,
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.0),
+            borderRadius: BorderRadius.circular(25.0),
           ),
+          floatingLabelBehavior: FloatingLabelBehavior.auto, // Move hint text to upper side
+          labelText: hintText, // Set the label text
         ),
       ),
     );
@@ -110,26 +112,28 @@ class _LoginPageState extends State<LoginPage> {
 
   // Função para criar o campo de senha com botão para mostrar/ocultar senha
   Widget _buildPasswordField(String hintText) {
-    return FractionallySizedBox(
-      widthFactor: 0.35, // 35% of the viewport width
+    return SizedBox(
+      width: 320, // Set the width to 320 pixels
       child: TextField(
         obscureText: !_isPasswordVisible, // Mostrar/ocultar senha
         decoration: InputDecoration(
-          hintText: hintText,
+          //hintText: hintText,
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.0),
+            borderRadius: BorderRadius.circular(25.0),
           ),
           suffixIcon: IconButton(
             icon: Icon(
-              _isPasswordVisible ? Icons.visibility : Icons.visibility_off,
-              color: Colors.grey,
+              _isPasswordVisible ? Icons.visibility : Icons.visibility_off
+              // color: Colors.grey,
             ),
             onPressed: () {
               setState(() {
                 _isPasswordVisible = !_isPasswordVisible;
               });
             },
-          ),
+        ),
+        floatingLabelBehavior: FloatingLabelBehavior.auto, // Move hint text to upper side
+        labelText: hintText, // Set the label text
         ),
       ),
     );
@@ -137,22 +141,36 @@ class _LoginPageState extends State<LoginPage> {
 
   // Função para criar o botão de Próximo
   Widget _buildNextButton(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {
-        // Ação do botão Próximo
+    return MouseRegion(
+      onEnter: (_) {
+        setState(() {
+          _isHovering = true;
+        });
       },
-      style: ElevatedButton.styleFrom(
-        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 50),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
+      onExit: (_) {
+        setState(() {
+          _isHovering = false;
+        });
+      },
+      child: ElevatedButton(
+        onPressed: () {
+          // Ação do botão Próximo
+        },
+        style: ElevatedButton.styleFrom(
+          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 130),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(25.0),
+          ),
+          backgroundColor: _isHovering ? Colors.deepPurple : Colors.deepPurpleAccent, // Cor baseada na imagem
         ),
-        backgroundColor: Colors.deepPurpleAccent, // Cor baseada na imagem
-      ),
-      child: const Text(
-        'Próximo',
-        style: TextStyle(fontSize: 16, color: Colors.white), // Texto branco
+        child: const Text(
+          'Próximo',
+          style: TextStyle(fontSize: 16, color: Colors.white), // Texto branco
+        ),
       ),
     );
   }
+
+  bool _isHovering = false; // Controle de estado para hover
 
 }
