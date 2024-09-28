@@ -41,7 +41,7 @@ class _LoginPageState extends State<LoginPage> {
                   color: Colors.deepPurpleAccent,
                 ),
                 const SizedBox(height: 20),
-                _buildTextField('Email, número ou nome de usuário'),
+                _buildTextField('Email ou nome de usuário'),
                 const SizedBox(height: 20),
                 _buildPasswordField('Senha'),
                 const SizedBox(height: 20),
