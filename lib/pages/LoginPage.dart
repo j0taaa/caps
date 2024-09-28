@@ -101,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
         decoration: InputDecoration(
           // hintText: hintText,
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(25.0),
+            borderRadius: BorderRadius.circular(15.0),
           ),
           floatingLabelBehavior: FloatingLabelBehavior.auto, // Move hint text to upper side
           labelText: hintText, // Set the label text
@@ -119,7 +119,7 @@ class _LoginPageState extends State<LoginPage> {
         decoration: InputDecoration(
           //hintText: hintText,
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(25.0),
+            borderRadius: BorderRadius.circular(15.0),
           ),
           suffixIcon: IconButton(
             icon: Icon(
@@ -157,14 +157,14 @@ class _LoginPageState extends State<LoginPage> {
           // Ação do botão Próximo
         },
         style: ElevatedButton.styleFrom(
-          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 130),
+          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 140),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(25.0),
+            borderRadius: BorderRadius.circular(15.0),
           ),
           backgroundColor: _isHovering ? Colors.deepPurple : Colors.deepPurpleAccent, // Cor baseada na imagem
         ),
         child: const Text(
-          'Próximo',
+          'Entrar',
           style: TextStyle(fontSize: 16, color: Colors.white), // Texto branco
         ),
       ),
