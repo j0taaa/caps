@@ -160,7 +160,7 @@ class _SearchPageState extends State<SearchPage> {
                     const SizedBox(height: 10),
                     // Lista de perfis recentemente pesquisados com scroll horizontal
                     SizedBox(
-                      height: 90, // Define a altura da barra de perfis
+                      height: 120, // Define a altura da barra de perfis
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal, // Scroll horizontal
                         itemCount: _recentProfiles.length,
