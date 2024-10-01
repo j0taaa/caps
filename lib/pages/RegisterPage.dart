@@ -53,8 +53,8 @@ class _RegisterPageState extends State<RegisterPage> {
     // Obter o tamanho da tela
     final double screenWidth = MediaQuery.of(context).size.width;
 
-    // Se a largura for menor que 600, usamos layout em uma única coluna
-    bool isSmallScreen = screenWidth < 600;
+    // Se a largura for menor que 1000, usamos layout em uma única coluna
+    bool isSmallScreen = screenWidth < 1025;
 
     return Scaffold(
       appBar: AppBar(
@@ -62,98 +62,100 @@ class _RegisterPageState extends State<RegisterPage> {
         leading: const CapsLeading(),
       ),
       drawer: const CapsDrawer(),
-      body: SingleChildScrollView(
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
+      body: Padding(
+        padding: const EdgeInsets.all(32.0),
+        child: Column(
+          mainAxisAlignment:
+              MainAxisAlignment.center, // Centraliza verticalmente
+          children: [
+            if (isSmallScreen)
+              const Column(
+                children: [
+                  Text(
+                    "Criar Conta",
+                    style: TextStyle(
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.deepPurpleAccent,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: 16),
+                  Text(
+                    "Estamos animados para você se juntar a nós!",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: 32)
+                ],
+              ),
+            Row(
+              mainAxisAlignment:
+                  MainAxisAlignment.center, // Centraliza horizontalmente
+              crossAxisAlignment:
+                  CrossAxisAlignment.center, // Centraliza verticalmente
               children: [
-                if (isSmallScreen)
-                  // Se a tela for pequena, movemos o texto para o centro
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text(
-                        "Criar Conta",
-                        style: TextStyle(
-                          fontSize: 32,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.deepPurpleAccent,
+                // Texto à esquerda (somente em telas maiores)
+                if (!isSmallScreen)
+                  const Flexible(
+                    // Substitui o Expanded por Flexible
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Criar Conta",
+                          style: TextStyle(
+                            fontSize: 32,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.deepPurpleAccent,
+                          ),
                         ),
-                      ),
-                      SizedBox(height: 8),
-                      Text(
-                        "Estamos animados para você se juntar a nós!",
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.black,
+                        SizedBox(height: 14),
+                        Text(
+                          "Estamos animados para você se juntar a nós!",
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.black,
+                          ),
                         ),
-                        textAlign: TextAlign.center,
+                        SizedBox(width: 440)
+                      ],
+                    ),
+                  ),
+                // Formulário centralizado
+                Flexible(
+                  flex: 2,
+                  child: Column(
+                    children: [
+                      const EmailField(),
+                      const SizedBox(height: 16),
+                      PasswordField(
+                        controller: _passwordController,
+                        obscurePassword: _obscurePassword,
+                        togglePasswordVisibility: _togglePasswordVisibility,
                       ),
+                      const SizedBox(height: 16),
+                      DateOfBirthField(
+                        controller: _dateController,
+                        onTap: () => _selectDate(context),
+                        applyDateMask: _applyDateMask,
+                      ),
+                      const SizedBox(height: 16),
+                      const TermsCheckbox(),
+                      const SizedBox(height: 16),
+                      const SubmitButton(),
+                      const SizedBox(height: 16),
+                      const BackButtonWidget(),
                     ],
                   ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    // Texto à esquerda (somente em telas maiores)
-                    if (!isSmallScreen)
-                      Expanded(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: const [
-                            Text(
-                              "Criar Conta",
-                              style: TextStyle(
-                                fontSize: 32,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.deepPurpleAccent,
-                              ),
-                            ),
-                            SizedBox(height: 8),
-                            Text(
-                              "Estamos animados para você se juntar a nós!",
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.black,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    // Formulário centralizado
-                    Expanded(
-                      flex: 2,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const EmailField(),
-                          const SizedBox(height: 16),
-                          PasswordField(
-                            controller: _passwordController,
-                            obscurePassword: _obscurePassword,
-                            togglePasswordVisibility: _togglePasswordVisibility,
-                          ),
-                          const SizedBox(height: 16),
-                          DateOfBirthField(
-                            controller: _dateController,
-                            onTap: () => _selectDate(context),
-                            applyDateMask: _applyDateMask,
-                          ),
-                          const SizedBox(height: 16),
-                          const TermsCheckbox(),
-                          const SizedBox(height: 16),
-                          const SubmitButton(),
-                          const SizedBox(height: 16),
-                          const BackButtonWidget(),
-                        ],
-                      ),
-                    ),
-                  ],
                 ),
               ],
             ),
-          ),
+          ],
         ),
       ),
       bottomNavigationBar: const CapsBottomNavigationBar(currentIndex: 4),
@@ -166,11 +168,11 @@ class EmailField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return const TextField(
       decoration: InputDecoration(
         labelText: 'Email',
-        prefixIcon: const Icon(Icons.email),
-        border: const OutlineInputBorder(
+        prefixIcon: Icon(Icons.email),
+        border: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(10)),
         ),
       ),
@@ -286,21 +288,46 @@ class _TermsCheckboxState extends State<TermsCheckbox> {
   }
 }
 
-class SubmitButton extends StatelessWidget {
+class SubmitButton extends StatefulWidget {
   const SubmitButton({super.key});
 
   @override
+  _SubmitButtonState createState() => _SubmitButtonState();
+}
+
+class _SubmitButtonState extends State<SubmitButton> {
+  bool _isHovering = false; // Controle de estado para hover
+
+  @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {},
-      style: ElevatedButton.styleFrom(
-        padding: const EdgeInsets.symmetric(vertical: 16),
-        textStyle: const TextStyle(fontSize: 16),
-      ),
-      child: const SizedBox(
-        width: double.infinity,
-        child: Text(
+    return MouseRegion(
+      onEnter: (_) {
+        setState(() {
+          _isHovering = true;
+        });
+      },
+      onExit: (_) {
+        setState(() {
+          _isHovering = false;
+        });
+      },
+      child: ElevatedButton(
+        onPressed: () {
+          // Ação do botão Próximo
+        },
+        style: ElevatedButton.styleFrom(
+          padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 140), // Ajuste de padding
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15.0), // Arredondamento
+          ),
+          backgroundColor: _isHovering ? Colors.deepPurple : Colors.deepPurpleAccent, // Cor com hover
+        ),
+        child: const Text(
           'Próximo',
+          style: TextStyle(
+            fontSize: 16, 
+            color: Colors.white, // Texto branco
+          ),
           textAlign: TextAlign.center,
         ),
       ),
@@ -317,7 +344,7 @@ class BackButtonWidget extends StatelessWidget {
       onPressed: () {
         Navigator.pop(context);
       },
-      child: const Text('Voltar'),
+      child: const Text('Voltar', style: TextStyle(color: Colors.deepPurpleAccent)),
     );
   }
 }

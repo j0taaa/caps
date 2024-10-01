@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart'; // Import the gestures package
 import 'package:caps/components/CapsBottomNavigationBar.dart';
 import 'package:caps/components/CapsLeading.dart';
 import 'package:caps/components/CapsDrawer.dart';

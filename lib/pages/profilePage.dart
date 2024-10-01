@@ -49,7 +49,7 @@ class ProfilePage extends StatelessWidget {
                             decoration: const BoxDecoration(
                               image: DecorationImage(
                                 image: NetworkImage(
-                                  'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a259e2b8-1e02-494b-9dcd-fb78d3e0d194/d72uu3s-df88a7b6-797f-48be-99bf-65ab7eafb0ab.jpg/v1/fill/w_851,h_315,q_75,strp/free_shadow_the_hedgehog_facebook_banner_by_darkrainbowstorm_d72uu3s-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MzE1IiwicGF0aCI6IlwvZlwvYTI1OWUyYjgtMWUwMi00OTRiLTlkY2QtZmI3OGQzZTBkMTk0XC9kNzJ1dTNzLWRmODhhN2I2LTc5N2YtNDhiZS05OWJmLTY1YWI3ZWFmYjBhYi5qcGciLCJ3aWR0aCI6Ijw9ODUxIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.6W0QkWXn7x0npGjt2niyyvy19o6eJO0B8cbPLuVNINA', // URL do banner
+                                  'https://render.fineartamerica.com/images/rendered/default/poster/8/5.5/break/images-medium-5/1-capybara-m-watson.jpg', // URL do banner
                                 ),
                                 fit: BoxFit.cover,
                               ),
@@ -70,7 +70,7 @@ class ProfilePage extends StatelessWidget {
                               child: CircleAvatar(
                                 radius: 40,
                                 backgroundImage: NetworkImage(
-                                  'https://image.geekship.com.br/eXoTu-V9o9AmMSXhf10V_bGLECw=/1280x960/smart/filters:strip_icc():format(webp)/hull.geekship.com.br/wp-content/uploads/2024/08/Sonic-3-mostra-Shadow-confrontando-Sonic-Tales-e-Knucle.jpg', // URL da imagem de perfil
+                                  'https://cdn.discordapp.com/attachments/1013109653422481530/1289355831367827516/image.png?ex=66fd22f1&is=66fbd171&hm=0fda7619f3a444c097b9c851f846dbc9de950661842ac7681cda93467c890a0e&', // URL da imagem de perfil
                                 ),
                               ),
                             ),
@@ -222,7 +222,7 @@ class ProfilePage extends StatelessWidget {
                               date: '2/09/24',
                               content: 'Confira o nosso projeto!',
                               imageUrl:
-                                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUgTuvD4krMwJ_wz_WcZSgVnAoiRN5oqnYRA&s',
+                                  'https://static.thenounproject.com/png/1018029-200.png',
                             ),
                             PostWidget(
                               name: 'Caps',
@@ -230,7 +230,7 @@ class ProfilePage extends StatelessWidget {
                               date: '2/09/24',
                               content: '',
                               imageUrl:
-                                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu4G9WeeU4t88q9iulmQ97Dxo8i6R3TodDFhHyngSM2_mDsCdxG2KLH7t1mziIv7in8YQ&usqp=CAU',
+                                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqUktWrj2Mq3lTmFNpul8KoLl6YXDiPsE_AQ&s',
                             ),
                           ],
                         ),
@@ -274,7 +274,7 @@ class PostWidget extends StatelessWidget {
             CircleAvatar(
               radius: 20,
               backgroundImage: NetworkImage(
-                  'https://image.geekship.com.br/eXoTu-V9o9AmMSXhf10V_bGLECw=/1280x960/smart/filters:strip_icc():format(webp)/hull.geekship.com.br/wp-content/uploads/2024/08/Sonic-3-mostra-Shadow-confrontando-Sonic-Tales-e-Knucle.jpg'),
+                  'https://cdn.discordapp.com/attachments/1013109653422481530/1289355831367827516/image.png?ex=66fd22f1&is=66fbd171&hm=0fda7619f3a444c097b9c851f846dbc9de950661842ac7681cda93467c890a0e&'),
             ),
             const SizedBox(width: 10),
             Column(
