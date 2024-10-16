@@ -18,13 +18,11 @@ class CreatePostPage extends StatelessWidget {
         actions: [
           TextButton(
             onPressed: () {
-              // Ação para o botão "Cancelar"
             },
             child: const Text('Cancelar', style: TextStyle(color: Colors.purple)),
           ),
           TextButton(
             onPressed: () {
-              // Ação para o botão "Postar test"
             },
             child: const Text('Postar', style: TextStyle(color: Colors.purple)),
           ),
@@ -40,7 +38,7 @@ class CreatePostPage extends StatelessWidget {
               children: [
                 const CircleAvatar(
                   backgroundColor: Colors.black,
-                  child: Icon(Icons.person, color: Colors.white), // Ícone de pessoa genérico para o avatar
+                  child: Icon(Icons.person, color: Colors.white), 
                 ),
                 const SizedBox(width: 10),
                 Expanded(
@@ -83,7 +81,6 @@ class CreatePostPage extends StatelessWidget {
                 ),
                 FloatingActionButton(
                   onPressed: () {
-                    // Ação para adicionar outro post ou anexo
                   },
                   backgroundColor: Colors.purple,
                   child: const Icon(Icons.add, color: Colors.white),
@@ -91,7 +88,7 @@ class CreatePostPage extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: 20), // Espaçamento entre os ícones e o rodapé
+          const SizedBox(height: 20), 
         ],
       ),
       bottomNavigationBar: const CapsBottomNavigationBar(currentIndex: 2),
